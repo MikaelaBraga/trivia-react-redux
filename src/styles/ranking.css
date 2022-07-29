@@ -1,0 +1,5 @@
+.container-ranking {
+  display: flex;
+  border: 1px solid black;
+  flex-wrap: wrap;
+}

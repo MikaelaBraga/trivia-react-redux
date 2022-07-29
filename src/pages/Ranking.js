@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/ranking.css';
 
 class Ranking extends Component {
   render() {
     const ranking = JSON.parse(localStorage.getItem('ranking'));
     return (
-      <div>
+      <div className="container-ranking">
         <h2 data-testid="ranking-title">Ranking</h2>
         {ranking.sort((a, b) => (b.score - a.score))
           .map((player, index) => (
