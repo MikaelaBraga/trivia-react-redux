@@ -1,0 +1,14 @@
+.header {
+  border: 2px solid red;
+  margin-top: 2rem;
+}
+
+.header img {
+  border-radius: 50%;
+  margin-top: 1rem;
+  width: 6em;
+}
+
+.header h2 {
+  margin-top: 2rem;
+}

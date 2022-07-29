@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import '../App.css';
+import '../styles/game.css';
+import imgTrivia from '../trivia.png';
 
 class GameScreen extends Component {
   constructor() {
@@ -133,6 +135,7 @@ class GameScreen extends Component {
       <div>
         {isActive ? (
           <button
+            className="button-next"
             type="button"
             data-testid="btn-next"
             onClick={ () => this.handleNextButton() }
@@ -193,14 +196,13 @@ class GameScreen extends Component {
     const state = { player };
     localStorage.setItem('state', JSON.stringify(state));
     return (
-      <div>
-        <h1>Tela Jogo</h1>
+      <div className="game-container">
+        <img className="logo-trivia" src={ imgTrivia } alt="logo game trivia" />
         <Header score={ score } />
-        { this.renderQuestionsApi() }
-        <p>
-          {' '}
-          {timeCount}
+        <p className="counter">
+          {`Tempo: ${timeCount}`}
         </p>
+        { this.renderQuestionsApi() }
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/header.css'
 
 class Header extends Component {
   render() {
@@ -7,7 +8,7 @@ class Header extends Component {
       name,
       gravatarEmail } } = JSON.parse(localStorage.getItem('state'));
     return (
-      <header>
+      <header className="header">
         <img
           src={ `https://www.gravatar.com/avatar/${gravatarEmail}` }
           alt="Imagem Avatar"
@@ -15,7 +16,7 @@ class Header extends Component {
         />
         <h2 data-testid="header-player-name">{ name }</h2>
         <h2 data-testid="header-score">
-          { score }
+          { `Pontuação: ${score}` }
         </h2>
       </header>
     );
