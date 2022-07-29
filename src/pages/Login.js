@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import md5 from 'crypto-js/md5';
 import { fetchApiToken, playerUserInfo } from '../actions';
+import '../styles/login.css';
+import imgTrivia from '../trivia.png'
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -52,9 +55,9 @@ class Login extends React.Component {
   render() {
     const { name, email, isDisable } = this.state;
     return (
-      <div>
-        <h1>Login Trivia</h1>
-        <form>
+      <div className="container-login">
+        <img src={ imgTrivia } alt='logo trivia game'/>
+        <form className="form-login">
           <label htmlFor="name">
             Nome:
             <input
@@ -79,6 +82,7 @@ class Login extends React.Component {
           </label>
           <Link to="/game">
             <button
+              className="button-login"
               disabled={ isDisable }
               type="button"
               data-testid="btn-play"
@@ -90,7 +94,13 @@ class Login extends React.Component {
           </Link>
         </form>
         <Link to="/settings">
-          <button type="button" data-testid="btn-settings">Configurações</button>
+          <button
+            className="button-settings"
+            type="button"
+            data-testid="btn-settings"
+            >
+              Configurações
+        </button>
         </Link>
       </div>
     );
