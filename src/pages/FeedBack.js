@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import '../styles/feedback.css';
 
 class Feedback extends Component {
   feedbackOfAssertions() {
@@ -10,7 +11,7 @@ class Feedback extends Component {
 
     if (assertions === 0) {
       return (
-        <div>
+        <div className="feedbacks">
           <p>Não acertou nenhuma pergunta</p>
           <p>
             Pontuação:
@@ -27,7 +28,7 @@ class Feedback extends Component {
       );
     }
     return (
-      <div>
+      <div className="feedbacks">
         <p>
           Pontuação:
           {' '}
@@ -47,7 +48,7 @@ class Feedback extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container-feedback">
         <Header />
         { this.feedbackOfAssertions() }
         <Link to="/">
