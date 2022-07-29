@@ -11,8 +11,8 @@ class GameScreen extends Component {
     super();
     this.state = {
       count: 0,
-      borderGreen: 'without',
-      borderRed: 'without,',
+      borderGreen: 'border-black',
+      borderRed: 'border-black',
       isDisable: false,
       timeCount: 30,
       isActive: false,
@@ -118,8 +118,8 @@ class GameScreen extends Component {
         count: count + 1,
         timeCount: 30,
         isDisable: false,
-        borderGreen: 'without',
-        borderRed: 'without,',
+        borderGreen: 'border-black',
+        borderRed: 'border-black',
         isActive: false,
       });
       this.setTimer();
@@ -154,7 +154,7 @@ class GameScreen extends Component {
     const incorrectAnswers = dataResults && dataResults
       .map((item) => item.incorrect_answers)[count];
     return (
-      <>
+      <div className="container-questions">
         {dataResults && dataResults.map((item) => (
           <>
             <p data-testid="question-category">{item.category}</p>
@@ -184,8 +184,7 @@ class GameScreen extends Component {
             {item}
           </button>
         ))}
-        {this.renderNextButton()}
-      </>
+      </div>
     );
   }
 
@@ -203,6 +202,7 @@ class GameScreen extends Component {
           {`Tempo: ${timeCount}`}
         </p>
         { this.renderQuestionsApi() }
+        {this.renderNextButton()}
       </div>
     );
   }
