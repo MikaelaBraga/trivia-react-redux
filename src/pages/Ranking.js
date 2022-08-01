@@ -7,20 +7,19 @@ class Ranking extends Component {
     const ranking = JSON.parse(localStorage.getItem('ranking'));
     return (
       <div className="container-ranking">
-        <h2 data-testid="ranking-title">Ranking</h2>
         {ranking.sort((a, b) => (b.score - a.score))
           .map((player, index) => (
-            <div key={ index }>
+            <div className="ranking-card" key={ index }>
               <img
                 src={ `https://www.gravatar.com/avatar/${player.gravatarEmail}` }
                 alt="Imagem Avatar"
               />
               <p data-testid={ `player-name-${index}` }>{player.name}</p>
-              <p data-testid={ `player-score-${index}` }>{player.score}</p>
+              <p data-testid={ `player-score-${index}` }>{`Pontuação: ${player.score}`}</p>
             </div>
           ))}
         <Link to="/">
-          <button type="button" data-testid="btn-go-home">Voltar para o Início</button>
+          <button className="return-button" type="button" data-testid="btn-go-home">Voltar para o Início</button>
         </Link>
       </div>
     );
