@@ -1,15 +1,11 @@
 
 # Boas vindas ao repositório do projeto de Trivia!
 
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir desse repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
+Esse é projeto de aprendizado de React.js com gerenciamento de estado React-Redux, implementado em grupo durante a formação da Trybe. O projeto é um app gamificado de perguntas e respostas temporizados com diversas categorias, capaz somar pontuações e estabelecer um ranking de jogadores. 🚀
 
 ---
 
-# Habilidades
-
-Nesse projeto, você será capaz de:
+# Habilidades aplicadas
 
   - Criar um store Redux em aplicações React
 
@@ -25,174 +21,32 @@ Nesse projeto, você será capaz de:
 
 ---
 
-## O que deverá ser desenvolvido
-
-Você deverá desenvolver um jogo de perguntas e respostas baseado no jogo **Trivia** _(tipo um show do milhão americano rs)_ utilizando _React e Redux_, desenvolvendo em grupo suas funcionalidades de acordo com as demanas definidas em um quadro _Kanban_. Confira o Slack para saber como acessar o quadro! Para viver um cenário mais próximo do mercado de trabalho, você deve fazer uma cópia desse quadro para utilizar com seu grupo. É de suma importância que o grupo se organize utilizando o quadro para maior eficiência e para que se minimizem os conflitos que a união de vários códigos trará. A partir dessas demandas, teremos uma aplicação onde a pessoa usuária poderá:
-
-  - Logar no jogo e, se o email tiver cadastro no site [Gravatar](https://pt.gravatar.com/), ter sua foto associada ao perfil de usuária.
-  - Acessar a página referente ao jogo, onde se deverá escolher uma das respostas disponíveis para cada uma das perguntas apresentadas. A resposta deve ser marcada antes do contador de tempo chegar a zero, caso contrário a resposta deverá ser considerada errada.
-  - Ser redirecionada, após 5 perguntas respondidas, para a tela de score, onde o texto mostrado depende do número de acertos.
-  - Visualizar a página de ranking, se quiser, ao final de cada jogo.
-  - Configurar algumas opções para o jogo em uma tela de configuração acessível a partir do cabeçalho do app.
-
-## Desenvolvimento
-
-Você pode acessar um **protótipo** completo da interface desejada para o projeto [**neste link**](https://www.figma.com/file/9XUqIwKEFBfbZn5t8MMZJY/Trivia---project?node-id=0%3A1).
-
-**Sinta-se livre para alterar a UI.** Só respeite as restrições de cada requisito - elas serão usados na correção.
-
----
-
-## Durante o desenvolvimento
-
-* Faça `commits` das alterações que você fizer no código regularmente
-
-* Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto
-
-* Os comandos que você utilizará com mais frequência são:
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
-  2. `git add` _(para adicionar arquivos ao stage do Git)_
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
-
----
-
 ### API de Trivia
 
-A [API do Trivia](https://opentdb.com/api_config.php) é bem simples. Temos 2 endpoints que vamos precisar utilizar para esse exercício.
-
-* **Pegar o token de sessão da pessoa que está jogando**
-* **Pegar perguntas e respostas**
-
-Primeiro, é necessário fazer um GET request para:
-
-```
-https://opentdb.com/api_token.php?command=request
-```
-
-Esse endpoint te retornará o token que vai ser utilizado nas requisições seguintes. A resposta dele será:
-
-```
-{
-   "response_code":0,
-   "response_message":"Token Generated Successfully!",
-   "token":"f00cb469ce38726ee00a7c6836761b0a4fb808181a125dcde6d50a9f3c9127b6"
-}
-```
-
-Para pegar as perguntas, você deve realizar um GET request para o seguinte endpoint:
-
-```
-https://opentdb.com/api.php?amount=${quantidade-de-perguntas-retornadas}&token=${seu-token-aqui}
-
-// Recomendação
-https://opentdb.com/api.php?amount=5&token=${seu-token-aqui}
-```
-
-Recomendamos pedir 5 perguntas de uma vez e controlar a disposição delas no código. Essa API te retorna as perguntas no seguinte formato:
-
-```
-// Pergunta de múltipla escolha
-{
-   "response_code":0,
-   "results":[
-      {
-         "category":"Entertainment: Video Games",
-         "type":"multiple",
-         "difficulty":"easy",
-         "question":"What is the first weapon you acquire in Half-Life?",
-         "correct_answer":"A crowbar",
-         "incorrect_answers":[
-            "A pistol",
-            "The H.E.V suit",
-            "Your fists"
-         ]
-      }
-   ]
-}
-```
-
-```
-// Pergunta de verdadeiro ou falso
-{
-   "response_code":0,
-   "results":[
-      {
-         "category":"Entertainment: Video Games",
-         "type":"boolean",
-         "difficulty":"hard",
-         "question":"TF2: Sentry rocket damage falloff is calculated based on the distance between the sentry and the enemy, not the engineer and the enemy",
-         "correct_answer":"False",
-         "incorrect_answers":[
-            "True"
-         ]
-      }
-   ]
-}
-```
-O token expira em 6 horas e te retornará um `response_code: 3` caso esteja expirado. **Atenção para que seu código contemple isso!** Caso o token seja inválido, essa será a resposta da API:
-
-```
-{
-   "response_code":3,
-   "results":[]
-}
-```
+A [API do Trivia](https://opentdb.com/api_config.php) que foi utilizada no projeto.
 
 ---
-
 ### Gravatar
 
 O Gravatar é um serviço que permite deixar o avatar global a partir do email cadastrado, ele mostra sua foto cadastrada em qualquer site vinculado. Na tela de **Inicio**, a pessoa que joga pode colocar um e-mail que deve fazer uma consulta a API do [Gravatar](https://br.gravatar.com/site/implement/images/).
 
-A Implementação é feita baseada no e-mail. Esse email deve ser transformado em uma hash `MD5` (https://br.gravatar.com/site/implement/hash/). Para gerar tal hash, recomendamos utilizar o [CryptoJs](https://github.com/brix/crypto-js).
-
-Por exemplo:
-  - Garantida a instalação do CryptoJS no projeto, importe o MD5:
-    `import md5 from 'crypto-js/md5';`
-
-  - Converta o email do usuário:
-    `md5(emailDoUsuário).toString();`
-
-**Atenção:** Precisamos utilizar o `toString()` ao final da conversão.
-
-Após a geração da hash, basta adicionar o valor gerado no final da URL:
-
-```
-// Formato de URL necessário:
-https://www.gravatar.com/avatar/${hash-gerada}
-
-// Exemplo de URL com hash de uma pessoa
-https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50
-
-// Exemplo de imagem exibida com a URL
-<img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
-
-```
 ---
+## Executando o projeto
 
-### Grupos de prioridade
+1. Clone o repositório
+  * `git clone git@github.com:MikaelaBraga/trivia-react-redux`.
+  * Entre na pasta do repositório que você acabou de clonar:
+    * `cd trivia-react-redux`
 
-Os requisitos são organizados por **grupos de prioridade por tela**. O objetivo é que o grupo possa se organizar melhor para que uma pessoa não fique totalmente dependente de outra para começar uma tarefa de outra tela. **Demandas de um grupo de prioridade podem ser realizadas em paralelo, e são pré-requisito para as demandas do grupo de prioridade seguinte.** Por exemplo:
-
-  - A tela de Login possui como prioridade 0 a criação do input de nome e email, mas só é possível fazer a ação de habilitar/desabilitar botão e salvar o token do usuário (prioridade 1), quando os inputs estiverem prontos.
-  - O primeiro requisito da tela de Jogo "Crie um header que deve conter as informações da pessoa jogadora" tem prioridade 1, ou seja, ele pode ser criado em paralelo mas depende das informações vindas da tela de Jogo para que o requisito seja aprovado.
-  - Prioridades 2 são aquelas que dependem de outros requisitos, por exemplo, "A pergunta deve ter apenas uma alternativa correta", ou seja, depende que o requisito 1 esteja pronto para ser realizada.
-  - Prioridades 3 são os ajustes finais, de prioridade baixa, que podem ou não depender de outros requisitos mas que não possuem dependentes. 
-
-Se você não seguir a ordem de prioridades terá que lidar com mais **conflitos de merge** e **demandas concorrentes**, onde o avanço de uma depende, na maioria das vezes, do avanço de outra para poder acontecer. **Ainda que siga a ordem de prioridade, no entanto, conflitos podem ocorrer a depender de como for feita a implementação do projeto, então é importante que o grupo faça esse alinhamento constantemente!**
-
-**ATENÇÃO!** 
-O avaliador testa a aplicação de maneira integrada. Ou seja: a tela de jogo só é aprovada quando a tela de login estiver pronta; As telas de ranking e feedback só serão aprovadas depois que as telas de login e jogo estiverem prontas. **É possível fazer as telas de jogo, ranking e feedback em paralelo, se a estrutura dos componentes for combinada pelo grupo!** Faz parte do desafio o desenvolvimento da aplicação sem o "acompanhamento" constante do avaliador. 
-
-Recomendamos, além disso, que os **requisitos de uma mesma tela** sejam feitos em sequência ou paralelamente por pessoas se comunicando _bastante_, para não haver conflitos. Embora requisitos de uma mesma tela com prioridades iguais possam ser feitos em paralelo, isso exigirá organização por parte das pessoas dividindo a tarefa para não haver conflitos.
-
+2. Instale as dependências e inicialize o projeto
+  * Instale as dependências:
+    * `npm install`
+  * Inicialize o projeto:
+    * `npm start` (uma nova página deve abrir no seu navegador)
 ---
-
-# Requisitos do projeto
-
-
+## Lista de requisitos
+<details>
+<summary>Requisitos do projeto</summary>
 ### Tela de início/login
 
 #### 1. Crie a tela de login, onde a pessoa que joga deve preencher as informações para iniciar um jogo
@@ -497,5 +351,4 @@ Recomendamos que o Redux e o Router sejam configurados nesse requisito, para que
 ##### 21. Ao mudar o valor do dropdown tipo, apenas perguntas do tipo selecionado devem aparecer para a pessoa que está jogando. Essa configuração será identificada pela chave type no retorno da API.
 
 ***Obs: A maneira como a API deve ser estruturada segue o seguinte modelo: https://opentdb.com/api_config.php***
-
----
+</details>
