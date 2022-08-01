@@ -20,7 +20,8 @@
   "scripts": {
     "cy": "cypress run",
     "cy:open": "cypress open",
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "node server.js",
+    "dev": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll",
