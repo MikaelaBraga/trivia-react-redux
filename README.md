@@ -42,7 +42,7 @@ O Gravatar é um serviço que permite deixar o avatar global a partir do email c
   * Instale as dependências:
     * `npm install`
   * Inicialize o projeto:
-    * `npm start` (uma nova página deve abrir no seu navegador)
+    * `npm run dev` (uma nova página deve abrir no seu navegador)
 ---
 ## Lista de requisitos
 <details>
