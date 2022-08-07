@@ -2,13 +2,15 @@
   background-color: #fff;
   border-radius: 10px;
   padding: 20px 30px;
+  margin: 0 auto;
+  margin-top: 10%;
   text-align: center;
-  width: 35rem;
+  width: 500px;
 }
 
 .logo-trivia {
   margin-top: 30px;
-  width: 20em;
+  width: 60%;
 }
 
 .button-next {
@@ -18,8 +20,8 @@
     color: #fff;
     cursor: pointer;
     font-size: 16px;
-    height: 40px;
-    margin-top: 30px;
+    margin-top: 2em;
+    padding: 10px;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -32,12 +34,12 @@
 
 .counter {
   background-color: #7514a1;
-  border-radius: 0.5rem;
+  border-radius: 10px;
   color: #fff;
   font-weight: bold;
-  font-size: 2rem;
-  margin-top: 2rem;
-  padding: 0.5rem;
+  font-size: 2em;
+  margin-top: 1em;
+  padding: 0.5em;
 }
 
 .container-questions {
@@ -46,17 +48,17 @@
 
 .container-questions p {
   font-weight: bold;
-  font-size: 1rem;
-  margin-top: 0.5rem;
+  font-size: 1em;
+  margin-top: 0.5em;
 }
 
 .container-questions button {
     background-color: #fff;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 1rem;
-    height: 40px;
-    margin-top: 0.5rem;
+    font-size: 1em;
+    margin-top: 0.5em;
+    padding: 7px;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
@@ -72,4 +74,28 @@
 
 .border-black {
   border: 2px solid black;
+}
+
+@media screen and (max-width: 500px) {
+  .game-container{
+    height: 550px;
+    width: 350px;
+  }
+
+  .counter {
+    font-size: 1em;
+  }
+
+  .container-questions p {
+    font-size: 0.8em;
+  }
+
+  .container-questions button {
+    font-size: 0.8em;
+    padding: 5px;
+  }
+
+  .button-next {
+    margin-top: 1em;
+  }
 }

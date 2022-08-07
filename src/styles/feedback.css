@@ -2,8 +2,10 @@
   background-color: #fff;
   border-radius: 10px;
   padding: 20px 30px;
+  margin: 0 auto;
+  margin-top: 20%;
   text-align: center;
-  width: 35rem;
+  width: 450px;
 }
 
 .container-feedback button {
@@ -13,19 +15,29 @@
   color: #fff;
   cursor: pointer;
   font-size: 16px;
-  height: 40px;
   margin-top: 30px;
+  padding: 10px;
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-.feedbacks {
-  margin-top: 3rem;
-}
-
 .feedbacks p {
   color: #4d046e;
-  font-size: 2rem;
-  margin-top: 0.5rem;
+  font-size: 2em;
+  margin-top: 0.5em;
+}
+
+@media screen and (max-width: 500px){
+  .container-feedback {
+    width: 300px;
+  }
+
+  .container-feedback button {
+    font-size: 14px;
+  }
+
+  .feedbacks p {
+    font-size: 1.5em;
+  }
 }

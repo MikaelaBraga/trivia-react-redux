@@ -1,13 +1,29 @@
 .header {
-  margin-top: 1rem;
+  margin-top: 0.5em;
 }
 
 .header img {
   border-radius: 50%;
-  margin-top: 1rem;
-  width: 6rem;
+  width: 20%;
 }
 
 .header h2 {
-  margin-top: 1rem;
+  padding: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .header h2 {
+    font-size: 1em;
+  }
+
+  .header img {
+    border-radius: 50%;
+    width: 15%;
+  }
 }

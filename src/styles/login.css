@@ -1,14 +1,28 @@
 .container-login {
   background-color: #fff;
   border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 20%;
   padding: 20px 30px;
   text-align: center;
-  width: 500px
+  width: 450px;
+}
+
+@media screen and (max-width: 500px) {
+  .container-login {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .container-login {
+    width: 250px;
+  }
 }
 
 .container-login img {
   margin-top: 30px;
-  width: 20em;
+  width: 60%;
 }
 
 .form-login {
